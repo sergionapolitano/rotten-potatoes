@@ -56,7 +56,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: account4hub/rotten-potatoes:latest
+          image: sua-conta-dockerhub/rotten-potatoes:latest
           ports:
             - containerPort: 5000
           env:
