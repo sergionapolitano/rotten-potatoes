@@ -1,4 +1,4 @@
-name: CI
+name: CI-CD
 
 on:
 
@@ -31,4 +31,4 @@ jobs:
           push: true
           tags: | 
             account4hub/rotten-potatoes:latest
-            account4hub/rotten-potatoes:${{ github.run_number }}
+            account4hub/rotten-potatoes:v${{ github.run_number }}
