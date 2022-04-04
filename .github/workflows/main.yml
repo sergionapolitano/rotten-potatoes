@@ -43,3 +43,9 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v2
+        with:
+          images: account4hub/rotten-potatoes:v${{ github.run_number }}
+          manifests:
+            deployment.yaml
