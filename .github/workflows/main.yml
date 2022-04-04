@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +32,25 @@ jobs:
           tags: | 
             account4hub/rotten-potatoes:latest
             account4hub/rotten-potatoes:v${{ github.run_number }}
+  CD:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        - name: Kubernetes Set Context
+          uses: Azure/k8s-set-context@v2
+          with:
+            method: 
+              kubeconfig: ${{ k8s_kubeconfig }}
+              context: # optional
+              k8s-url: # optional
+    # Service account secret (run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name)
+    k8s-secret: # optional
+    # Token extracted from the secret of service account (should be base 64 decoded)
+    token: # optional
+    # Azure resource group name
+    resource-group: # optional
+    # Azure connected cluster name
+    cluster-name: # optional
+      
+    
